@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Customers orders</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" th:href="@{customer}" href="#">Customer</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="#" th:href="@{customerOrder}">Add order</a></li>
+        </ul>
+    </div>
+</nav>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Customer name</th>
+        <th>Beverage name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr th:each="customerOrder: ${customerOrderList}">
+        <td th:text="${customerOrder.id}"></td>
+        <td th:text="${customerOrder.customerName}"></td>
+        <td th:text="${customerOrder.productName}"></td>
+        <td th:text="${customerOrder.quantity}"></td>
+        <td th:text="${customerOrder.totalPrice}"></td>
+    </tr>
+    </tbody>
+
+</table>
+
+</body>
+</html>
